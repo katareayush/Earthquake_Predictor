@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Creator{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1 style="text-align: center; margin-bottom: 2rem; color: #2c3e50;">About the Creator</h1>
+    
+    <div style="text-align: center;">
+        <div style="width: 150px; height: 150px; margin: 0 auto 2rem; background: #ddd; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 4rem; color: #666;">👤</span>
+        </div>
+        
+        <h2 style="color: #34495e; margin-bottom: 1rem;">[Your Name]</h2>
+        <p style="color: #666; margin-bottom: 2rem;">[Your Title/Role]</p>
+        
+        <div style="max-width: 600px; margin: 0 auto; text-align: left; line-height: 1.6;">
+            <p> Details here</p>
+        </div>
+        
+        <div style="margin-top: 2rem;">
+            <a href="#" class="btn" style="margin: 0 0.5rem;">LinkedIn</a>
+            <a href="#" class="btn" style="margin: 0 0.5rem;">GitHub</a>
+            <a href="#" class="btn" style="margin: 0 0.5rem;">Email</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

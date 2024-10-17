@@ -1,29 +1,35 @@
-
 import numpy as np
-import pandas as pd
-from sklearn.model_selection import train_test_split
+from flask import Flask, request, render_template
 import pickle
-from sklearn import metrics
-from sklearn.ensemble import RandomForestClassifier
+
+app = Flask(__name__)
+
+# Load the model
+model = pickle.load(open('model.pkl', 'rb'))
+
+@app.route('/prediction', methods=['POST'])
+def prediction():
+    data1 = float(request.form['latitude'])
+    data2 = float(request.form['longitude'])
+    data3 = float(request.form['depth'])
+    
+    # Prepare input for the model
+    arr = np.array([[data1, data2, data3]])
+    
+    # Make prediction
+    output = model.predict(arr)
+
+    # Convert the output to a readable format
+    output_value = output[0]
+
+    return render_template('prediction.html', p=output_value)
+    
+print("Model Created Sucessfully")
+
+# Example input data
+test_input = np.array([[29.06, 77.42, 5]])  # Replace with actual values
+predicted_magnitude = model.predict(test_input)
+
+print(f"Predicted Magnitude: {predicted_magnitude[0]}")
 
 
-data = pd.read_csv("dataset.csv")
-
-data = np.array(data)
-print(data)
-X = data[:, 0:-1]
-y = data[:, -1]
-y = y.astype('int')
-X = X.astype('int')
-
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
-
-#  print(X_train,y_train)
-rfc = RandomForestClassifier()
-rfc.fit(X_train, y_train)
-# y_pred = rfc.predict(X_test)
-
-# print(metrics.accuracy_score(y_test, y_pred))
-
-
-pickle.dump(rfc,open('model.pkl','wb'))

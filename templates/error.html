@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Error{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1 style="text-align: center; color: #e74c3c;">Error</h1>
+    <p style="text-align: center; margin: 2rem 0;">An error occurred while processing your request.</p>
+    <div style="text-align: center;">
+        <a href="{{ url_for('home') }}" class="btn">Return Home</a>
+    </div>
+</div>
+{% endblock %}

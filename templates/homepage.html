@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Health Risk Predictor - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1 style="text-align: center; margin-bottom: 2rem; color: #2c3e50;">Health Risk Assessment</h1>
+    
+    <form action="{{ url_for('prediction') }}" method="post">
+        <div class="form-group">
+            <label for="param1">Parameter 1:</label>
+            <input type="number" step="0.01" id="param1" name="a" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="param2">Parameter 2:</label>
+            <input type="number" step="0.01" id="param2" name="b" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="param3">Parameter 3:</label>
+            <input type="number" step="0.01" id="param3" name="c" required>
+        </div>
+        
+        <div style="text-align: center;">
+            <button type="submit" class="btn">Predict Risk</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

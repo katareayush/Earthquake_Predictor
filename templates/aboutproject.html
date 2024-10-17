@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}About Project{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1 style="text-align: center; margin-bottom: 2rem; color: #2c3e50;">About the Project</h1>
+    
+    <div style="line-height: 1.6;">
+        <h2 style="color: #34495e; margin-bottom: 1rem;">Project Overview</h2>
+        <p>This health risk assessment tool uses machine learning to predict potential health risks based on various parameters.</p>
+        
+        <h2 style="color: #34495e; margin: 2rem 0 1rem;">How It Works</h2>
+        <p>The system takes three key parameters as input and processes them through a trained machine learning model to assess potential health risks.</p>
+        
+        <h2 style="color: #34495e; margin: 2rem 0 1rem;">Risk Levels</h2>
+        <ul style="list-style-position: inside; margin-left: 1rem;">
+            <li>No Risk (< 4)</li>
+            <li>Low Risk (4-6)</li>
+            <li>Moderate Risk (6-8)</li>
+            <li>High Risk (8-9)</li>
+            <li>Very High Risk (> 9)</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
