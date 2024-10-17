@@ -4,16 +4,13 @@ import numpy as np
 
 app = Flask(__name__)
 
-# Load the trained model
+# Load the model
 model = pickle.load(open('model.pkl', 'rb'))
 
-# Routes
+# Home routes
 @app.route('/')
-def home():
-    return render_template('homepage.html')
-
 @app.route('/home')
-def home2():
+def home():
     return render_template('homepage.html')
 
 @app.route('/error')
@@ -36,32 +33,36 @@ def sourcecode():
 def creator():
     return render_template('creator.html')
 
-@app.route('/prediction', methods=['POST', 'GET'])
+@app.route('/prediction', methods=['POST'])
 def prediction():
-    data1 = int(float(request.form['a']))
-    data2 = int(float(request.form['b']))
-    data3 = int(float(request.form['c']))
-    print(data1, data2, data3)
-    
+    try:
+        data1 = int(float(request.form['a']))  # Parameter 1 (Latitude)
+        data2 = int(float(request.form['b']))  # Parameter 2 (Longitude)
+        data3 = int(float(request.form['c']))  # Parameter 3 (Depth)
+    except ValueError:
+        return render_template('error.html', message="Invalid input")
+
     arr = np.array([[data1, data2, data3]])
-    output = model.predict(arr)[0]  # Extract the first prediction value
+    output = model.predict(arr)[0]  # Predicted magnitude
+    output_str = str(np.round(output, 2))
+    print(f"Predicted Risk Score: {output}")
+    
 
-    def to_str(var):
-        return str(np.round(var, 2))  # Convert the prediction to a string
+    prediction_categories = {
+        (float('-inf'), 4): 'No',
+        (4, 6): 'Low',
+        (6, 8): 'Moderate',
+        (8, 9): 'High',
+        (9, float('inf')): 'Very High'
+    }
 
-    # Condition logic
-    if output < 4:
-        return render_template('prediction.html', p=to_str(output), q='No')
-    elif 4 <= output < 6:
-        return render_template('prediction.html', p=to_str(output), q='Low')
-    elif 6 <= output < 8:
-        return render_template('prediction.html', p=to_str(output), q='Moderate')
-    elif 8 <= output < 9:
-        return render_template('prediction.html', p=to_str(output), q='High')
-    elif output >= 9:
-        return render_template('prediction.html', p=to_str(output), q='Very High')
-    else:
-        return render_template('prediction.html', p='N.A.', q='Undefined')
+    risk_score = None
+    for (lower, upper), label in prediction_categories.items():
+        if lower <= output < upper:
+            risk_score = label
+            break
+
+    return render_template('prediction_results.html', magnitude=output_str, risk_score=risk_score)
 
 if __name__ == "__main__":
     app.run(debug=True)
