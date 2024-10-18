@@ -1,26 +1,107 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Project - Health Risk Predictor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
 
-{% block title %}About Project{% endblock %}
+        body {
+            background: #f0f2f5;
+        }
 
-{% block content %}
-<div class="card">
-    <h1 style="text-align: center; margin-bottom: 2rem; color: #2c3e50;">About the Project</h1>
+        .navbar {
+            background: #2c3e50;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: #34495e;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
+
+        h2 {
+            color: #34495e;
+            margin: 2rem 0 1rem;
+        }
+
+        ul {
+            list-style-position: inside;
+            margin-left: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="/home">Home</a>
+            <a href="/aboutproject">About Project</a>
+            <a href="/review">Review</a>
+            <a href="/sourcecode">Source Code</a>
+            <a href="/creator">Creator</a>
+        </div>
+    </nav>
     
-    <div style="line-height: 1.6;">
-        <h2 style="color: #34495e; margin-bottom: 1rem;">Project Overview</h2>
-        <p>This health risk assessment tool uses machine learning to predict potential health risks based on various parameters.</p>
-        
-        <h2 style="color: #34495e; margin: 2rem 0 1rem;">How It Works</h2>
-        <p>The system takes three key parameters as input and processes them through a trained machine learning model to assess potential health risks.</p>
-        
-        <h2 style="color: #34495e; margin: 2rem 0 1rem;">Risk Levels</h2>
-        <ul style="list-style-position: inside; margin-left: 1rem;">
-            <li>No Risk (< 4)</li>
-            <li>Low Risk (4-6)</li>
-            <li>Moderate Risk (6-8)</li>
-            <li>High Risk (8-9)</li>
-            <li>Very High Risk (> 9)</li>
-        </ul>
+    <div class="container">
+        <div class="card">
+            <h1>About the Project</h1>
+            
+            <div style="line-height: 1.6;">
+                <h2>Project Overview</h2>
+                <p>This health risk assessment tool uses machine learning to predict potential health risks based on various parameters.</p>
+                
+                <h2>How It Works</h2>
+                <p>The system takes three key parameters as input and processes them through a trained machine learning model to assess potential health risks.</p>
+                
+                <h2>Risk Levels</h2>
+                <ul>
+                    <li>No Risk (< 4)</li>
+                    <li>Low Risk (4-6)</li>
+                    <li>Moderate Risk (6-8)</li>
+                    <li>High Risk (8-9)</li>
+                    <li>Very High Risk (> 9)</li>
+                </ul>
+            </div>
+        </div>
     </div>
-</div>
-{% endblock %}
+</body>
+</html>

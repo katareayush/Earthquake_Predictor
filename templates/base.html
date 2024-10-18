@@ -3,109 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <title>{% block title %}Health Risk Predictor{% endblock %}</title>
+=======
+    <title>Health Risk Predictor - Home</title>
+>>>>>>> fd65ca3feb4978bc40abf4b5f1dd5bf8a25e1b94
     <style>
-        * {
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
-        body {
-            background: #f0f2f5;
-        }
-
-        .navbar {
-            background: #2c3e50;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .nav-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            align-items: center;
+            height: 100vh;
         }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-
-        .nav-links a:hover {
-            background-color: #34495e;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
         .card {
-            background: white;
+            background-color: #ecf0f1;
             border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
         }
-
-        .btn {
-            background: #3498db;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .btn:hover {
-            background: #2980b9;
-        }
-
-        .form-group {
-            margin-bottom: 1rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
             color: #2c3e50;
         }
-
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
         .form-group input {
             width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #ddd;
+            padding: 8px;
             border-radius: 4px;
+            border: 1px solid #bdc3c7;
         }
-
-        .result {
-            margin-top: 2rem;
-            padding: 1rem;
-            border-radius: 4px;
-            background: #e8f4f8;
+        .btn {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .btn:hover {
+            background-color: #2980b9;
         }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-links">
-            <a href="{{ url_for('home') }}">Home</a>
-            <a href="{{ url_for('aboutproject') }}">About Project</a>
-            <a href="{{ url_for('review') }}">Review</a>
-            <a href="{{ url_for('sourcecode') }}">Source Code</a>
-            <a href="{{ url_for('creator') }}">Creator</a>
-        </div>
-    </nav>
-    
-    <div class="container">
-        {% block content %}{% endblock %}
+    <div class="card">
+        <h1>Health Risk Assessment</h1>
+        
+        <form action="/prediction" method="post">
+            <div class="form-group">
+                <label for="param1">Parameter 1:</label>
+                <input type="number" step="0.01" id="param1" name="a" required placeholder="Enter value for Parameter 1">
+            </div>
+            
+            <div class="form-group">
+                <label for="param2">Parameter 2:</label>
+                <input type="number" step="0.01" id="param2" name="b" required placeholder="Enter value for Parameter 2">
+            </div>
+            
+            <div class="form-group">
+                <label for="param3">Parameter 3:</label>
+                <input type="number" step="0.01" id="param3" name="c" required placeholder="Enter value for Parameter 3">
+            </div>
+            
+            <div>
+                <button type="submit" class="btn">Predict Risk</button>
+            </div>
+        </form>
     </div>
 </body>
 </html>

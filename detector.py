@@ -1,35 +1,35 @@
+import pandas as pd
 import numpy as np
-from flask import Flask, request, render_template
-import pickle
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_squared_error, mean_absolute_error
 
-app = Flask(__name__)
+data = pd.read_csv('dataset.csv')
 
-# Load the model
-model = pickle.load(open('model.pkl', 'rb'))
+X = data[['Latitude', 'Longitude', 'Depth']]
+y = data['Magnitude']
 
-@app.route('/prediction', methods=['POST'])
-def prediction():
-    data1 = float(request.form['latitude'])
-    data2 = float(request.form['longitude'])
-    data3 = float(request.form['depth'])
-    
-    # Prepare input for the model
-    arr = np.array([[data1, data2, data3]])
-    
-    # Make prediction
-    output = model.predict(arr)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-    # Convert the output to a readable format
-    output_value = output[0]
+model = RandomForestRegressor(random_state=42)
 
-    return render_template('prediction.html', p=output_value)
-    
-print("Model Created Sucessfully")
+param_grid = {
+    'n_estimators': [100, 200],
+    'max_depth': [None, 10, 20],
+    'min_samples_split': [2, 5],
+}
+grid_search = GridSearchCV(model, param_grid, cv=5)
+grid_search.fit(X_train, y_train)
 
-# Example input data
-test_input = np.array([[29.06, 77.42, 5]])  # Replace with actual values
-predicted_magnitude = model.predict(test_input)
+best_model = grid_search.best_estimator_
 
-print(f"Predicted Magnitude: {predicted_magnitude[0]}")
+y_pred = best_model.predict(X_test)
 
+mse = mean_squared_error(y_test, y_pred)
+mae = mean_absolute_error(y_test, y_pred)
 
+print(f'Mean Squared Error: {mse}')
+print(f'Mean Absolute Error: {mae}')
+
+results = pd.DataFrame({'Actual': y_test, 'Predicted': y_pred})
+print(results.head(10))

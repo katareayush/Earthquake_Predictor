@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About the Creator - Health Risk Predictor</title>
+    <title>Prediction Results</title>
     <style>
         * {
             margin: 0;
@@ -40,17 +40,13 @@
             background-color: #34495e;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
         .card {
             background: white;
             border-radius: 8px;
             padding: 2rem;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: 2rem auto; /* Center card with margin */
         }
 
         h1 {
@@ -59,39 +55,32 @@
             color: #2c3e50;
         }
 
+        .result {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+
         h2 {
-            color: #34495e;
-            margin-bottom: 1rem;
+            color: #2980b9;
         }
 
-        p {
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        .profile-image {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 2rem;
-            background: #ddd;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        h3 {
+            color: #e74c3c;
         }
 
         .btn {
-            background: #3498db;
+            background-color: #3498db;
             color: white;
             padding: 0.75rem 1.5rem;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             transition: background-color 0.3s;
+            text-align: center;
         }
 
         .btn:hover {
-            background: #2980b9;
+            background-color: #2980b9;
         }
     </style>
 </head>
@@ -105,29 +94,17 @@
             <a href="/creator">Creator</a>
         </div>
     </nav>
-    
-    <div class="container">
-        <div class="card">
-            <h1>About the Creator</h1>
-            
-            <div style="text-align: center;">
-                <div class="profile-image">
-                    <span style="font-size: 4rem; color: #666;">👤</span>
-                </div>
-                
-                <h2>[Your Name]</h2>
-                <p>[Your Title/Role]</p>
-                
-                <div style="max-width: 600px; margin: 0 auto; text-align: left; line-height: 1.6;">
-                    <p>Details here</p>
-                </div>
-                
-                <div style="margin-top: 2rem;">
-                    <a href="#" class="btn" style="margin: 0 0.5rem;">LinkedIn</a>
-                    <a href="#" class="btn" style="margin: 0 0.5rem;">GitHub</a>
-                    <a href="#" class="btn" style="margin: 0 0.5rem;">Email</a>
-                </div>
-            </div>
+
+    <div class="card">
+        <h1>Prediction Results</h1>
+        
+        <div class="result">
+            <h2>Predicted Magnitude: {{ magnitude }}</h2>  <!-- Displaying predicted magnitude -->
+            <h3>Risk Level: {{ risk_score }}</h3>          <!-- Displaying risk level -->
+        </div>
+        
+        <div style="text-align: center;">
+            <a href="{{ url_for('home') }}" class="btn">Make Another Prediction</a>
         </div>
     </div>
 </body>

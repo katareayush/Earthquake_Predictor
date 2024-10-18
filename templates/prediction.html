@@ -1,18 +1,109 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Results</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
 
-{% block title %}Prediction Results{% endblock %}
+        body {
+            background: #f0f2f5;
+        }
 
-{% block content %}
-<div class="card">
-    <h1 style="text-align: center; margin-bottom: 2rem; color: #2c3e50;">Prediction Results</h1>
-    
-    <div class="result">
-        <h2>Risk Score: {{ p }}</h2>
-        <h3>Risk Level: {{ q }}</h3>
+        .navbar {
+            background: #2c3e50;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: #34495e;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
+
+        .result {
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .btn {
+            background-color: #3498db;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="/home">Home</a>
+            <a href="/aboutproject">About Project</a>
+            <a href="/review">Review</a>
+            <a href="/sourcecode">Source Code</a>
+            <a href="/creator">Creator</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <h1>Prediction Results</h1>
+            
+            <div class="result">
+                <h2>Risk Score: <!-- Replace with server-side rendered value --> {{ p }} </h2>
+                <h3>Risk Level: <!-- Replace with server-side rendered value --> {{ q }} </h3>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="homepage.html" class="btn">Make Another Prediction</a> <!-- Update the URL as per your routing -->
+            </div>
+        </div>
     </div>
-    
-    <div style="text-align: center; margin-top: 2rem;">
-        <a href="{{ url_for('home') }}" class="btn">Make Another Prediction</a>
-    </div>
-</div>
-{% endblock %}
+</body>
+</html>
