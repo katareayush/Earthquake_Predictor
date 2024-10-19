@@ -19,7 +19,7 @@
         .navbar {
             background: #2c3e50;
             padding: 1rem 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .nav-links {
@@ -48,15 +48,28 @@
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr); /* 3 cards in a row */
             gap: 2rem;
+        }
+
+        /* For smaller screens, make the layout responsive */
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 cards in a row on smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid {
+                grid-template-columns: 1fr; /* 1 card in a row on mobile screens */
+            }
         }
 
         .card {
             background: white;
             border-radius: 8px;
             padding: 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
@@ -68,6 +81,7 @@
         h2 {
             color: #34495e;
             margin-bottom: 1rem;
+            margin-top: 1rem;
         }
 
         p {
@@ -76,15 +90,23 @@
         }
 
         .profile-image {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 2rem;
-            background: #ddd;
-            border-radius: 50%;
+            width: 150px;  /* Set the desired width */
+            height: 150px; /* Set the desired height */
+            overflow: hidden; /* Hide overflow */
+            border-radius: 50%; /* Make it round */
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+            background-color: #ddd; /* Optional: background color */
+            transform: translateX(83px);
+            
         }
+        
+        .profile-image img {
+            width: 100%; 
+            height: auto; 
+        }
+        
 
         .btn {
             background: #3498db;
@@ -119,7 +141,58 @@
             <div class="card">
                 <div style="text-align: center;">
                     <div class="profile-image">
-                        <span style="font-size: 4rem; color: #666;">👤</span>
+                        <img src="{{ url_for('static', filename='assets/kushagra.jpg') }}?v=1" alt="Kushagra">
+                    </div>
+                    <h2>[Your Name]</h2>
+                    <p>[Your Title/Role]</p>
+                    <div style="max-width: 600px; margin: 0 auto; text-align: left; line-height: 1.6;">
+                        <p>[Details about you, your experience, and your contributions to the project.]</p>
+                    </div>
+                    <div style="margin-top: 2rem;">
+                        <a href="#" class="btn" style="margin: 0 0.5rem;">LinkedIn</a>
+                        <a href="#" class="btn" style="margin: 0 0.5rem;">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="text-align: center;">
+                    <div class="profile-image">
+                        <img src="{{ url_for('static', filename='assets/pranshita.jpg') }}?v=1" alt="">
+                    </div>
+                    <h2>[Your Name]</h2>
+                    <p>[Your Title/Role]</p>
+                    <div style="max-width: 600px; margin: 0 auto; text-align: left; line-height: 1.6;">
+                        <p>[Details about you, your experience, and your contributions to the project.]</p>
+                    </div>
+                    <div style="margin-top: 2rem;">
+                        <a href="#" class="btn" style="margin: 0 0.5rem;">LinkedIn</a>
+                        <a href="#" class="btn" style="margin: 0 0.5rem;">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="text-align: center;">
+                    <div class="profile-image">
+                        <img src="{{ url_for('static', filename='assets/anany.jpg') }}?v=1" alt="">
+                    </div>
+                    <h2>[Your Name]</h2>
+                    <p>[Your Title/Role]</p>
+                    <div style="max-width: 600px; margin: 0 auto; text-align: left; line-height: 1.6;">
+                        <p>[Details about you, your experience, and your contributions to the project.]</p>
+                    </div>
+                    <div style="margin-top: 2rem;">
+                        <a href="#" class="btn" style="margin: 0 0.5rem;">LinkedIn</a>
+                        <a href="#" class="btn" style="margin: 0 0.5rem;">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="text-align: center;">
+                    <div class="profile-image">
+                        <img src="{{ url_for('static', filename='assets/vidit.jpg') }}?v=1" alt="">
                     </div>
                     <h2>[Your Name]</h2>
                     <p>[Your Title/Role]</p>
@@ -167,50 +240,8 @@
                 </div>
             </div>
 
-            <div class="card">
-                <div style="text-align: center;">
-                    <div class="profile-image">
-                        <span style="font-size: 4rem; color: #666;">👤</span>
-                    </div>
-                    <h2>[Your Name]</h2>
-                    <p>[Your Title/Role]</p>
-                    <div style="max-width: 600px; margin: 0 auto; text-align: left; line-height: 1.6;">
-                        <p>[Details about you, your experience, and your contributions to the project.]</p>
-                    </div>
-                    <div style="margin-top: 2rem;">
-                        <a href="#" class="btn" style="margin: 0 0.5rem;">LinkedIn</a>
-                        <a href="#" class="btn" style="margin: 0 0.5rem;">GitHub</a>
-                    </div>
-                </div>
-            </div>
 
-            <div class="card">
-                <div style="text-align: center;">
-                    <div class="profile-image">
-                        <span style="font-size: 4rem; color: #666;">👤</span>
-                    </div>
-                    <h2>[Your Name]</h2>
-                    <p>[Your Title/Role]</p>
-                    <div style="max-width: 600px; margin: 0 auto; text-align: left; line-height: 1.6;">
-                        <p>[Details about you, your experience, and your contributions to the project.]</p>
-                    </div>
-                    <div style="margin-top: 2rem;">
-                        <a href="#" class="btn" style="margin: 0 0.5rem;">LinkedIn</a>
-                        <a href="#" class="btn" style="margin: 0 0.5rem;">GitHub</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div style="text-align: center;">
-                    <div class="profile-image">
-                        <span style="font-size: 4rem; color: #666;">👤</span>
-                    </div>
-                    <h2>[Your Name]</h2>
-                    <p>[Your Title/Role]</p>
-                    <div style="max-width: 600px; margin: 0 auto; text-align: left; line-height: 1.6;">
-                        <p>[Details about you, your experience, and your contributions to the project.]</p>
-                    </div>
-                    <div style="margin-top: 2rem;">
-                        <a href="#" class="btn" style="margin: 0 0.5rem;">LinkedIn</a>
-                        <a href="#" class="btn" style="margin: 0 0.5rem;">GitHub</a>
+        </div>
+    </div>
+</body>
+</html>
