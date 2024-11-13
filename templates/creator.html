@@ -37,14 +37,13 @@
 
     <!-- Navbar -->
     <nav class="bg-gray-800 shadow-lg sticky top-0 z-50">
-        <div class="flex justify-center gap-8 py-4 transition duration-500 ease-in-out transform hover:scale-105">
-            <a href="/home" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300 ease-in-out hover:text-yellow-400">Home</a>
-            <a href="/aboutproject" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300 ease-in-out hover:text-yellow-400">About Project</a>
-            <a href="/location" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300 ease-in-out hover:text-yellow-400">Get Location</a>
-            <a href="/review" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300 ease-in-out hover:text-yellow-400">Review</a>
-            <a href="/sourcecode" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300 ease-in-out hover:text-yellow-400">Source Code</a>
-            <a href="/creator" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300 ease-in-out hover:text-yellow-400">Team</a>
-            
+        <div class="flex justify-center gap-8 py-4">
+            <a href="/home" class="text-white hover:bg-gray-700 px-4 py-2 rounded hover:text-yellow-400">Home</a>
+            <a href="/aboutproject" class="text-white hover:bg-gray-700 px-4 py-2 rounded hover:text-yellow-400">About Project</a>
+            <a href="/location" class="text-white hover:bg-gray-700 px-4 py-2 rounded hover:text-yellow-400">Get Location</a>
+            <a href="/review" class="text-white hover:bg-gray-700 px-4 py-2 rounded hover:text-yellow-400">Review</a>
+            <a href="/sourcecode" class="text-white hover:bg-gray-700 px-4 py-2 rounded hover:text-yellow-400">Source Code</a>
+            <a href="/creator" class="text-white hover:bg-gray-700 px-4 py-2 rounded hover:text-yellow-400">Team</a>
         </div>
     </nav>
 
@@ -54,6 +53,21 @@
 
         <!-- Grid layout for team members -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Team Member 1 -->
+            <div class="bg-white rounded-lg shadow-lg p-6 hover-scale">
+                <div class="flex flex-col items-center">
+                    <div class="w-32 h-32 rounded-full overflow-hidden mb-4">
+                        <img src="{{ url_for('static', filename='assets/ak_bento.jpg') }}?v=1" alt="Kushagra" class="object-cover w-full h-full">
+                    </div>
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-2">Ayush Katare</h2>
+                    <p class="text-gray-600 mb-4">Lead Developer</p>
+                    <p class="text-center text-gray-600 mb-4">Full Stack Developer | Next.js | React.js</p>
+                    <div class="space-x-4">
+                        <a href="https://www.linkedin.com/in/kushagra-dharia-109933216" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg hover-zoom">LinkedIn</a>
+                        <a href="#" class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg hover-zoom">GitHub</a>
+                    </div>
+                </div>
+            </div>
 
             <!-- Team Member 1 -->
             <div class="bg-white rounded-lg shadow-lg p-6 hover-scale">
@@ -65,8 +79,8 @@
                     <p class="text-gray-600 mb-4">Hardware Lead</p>
                     <p class="text-center text-gray-600 mb-4">Bennett University B.Tech ECE’27 | ACM | NCC | DroneSoc</p>
                     <div class="space-x-4">
-                        <a href="https://www.linkedin.com/in/kushagra-dharia-109933216?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition duration-300 hover-zoom">LinkedIn</a>
-                        <a href="#" class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg transition duration-300 hover-zoom">GitHub</a>
+                        <a href="https://www.linkedin.com/in/kushagra-dharia-109933216" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg hover-zoom">LinkedIn</a>
+                        <a href="#" class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg hover-zoom">GitHub</a>
                     </div>
                 </div>
             </div>
@@ -81,41 +95,44 @@
                     <p class="text-gray-600 mb-4">Backend/Research</p>
                     <p class="text-center text-gray-600 mb-4">Java || Python || ACM team</p>
                     <div class="space-x-4">
-                        <a href="https://www.linkedin.com/in/pranshita?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition duration-300 hover-zoom">LinkedIn</a>
-                        <a href="https://github.com/pranshitaa" class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg transition duration-300 hover-zoom">GitHub</a>
+                        <a href="https://www.linkedin.com/in/pranshita" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg hover-zoom">LinkedIn</a>
+                        <a href="https://github.com/pranshitaa" class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg hover-zoom">GitHub</a>
                     </div>
                 </div>
             </div>
 
-            <div class="card">
-                <div style="text-align: center;">
-                    <div class="profile-image">
-                        <img src="{{ url_for('static', filename='assets/anany.jpg') }}?v=1" alt="">
-                    </div>
-                    <h2>[Your Name]</h2>
-                    <p>[Your Title/Role]</p>
-                    <div style="max-width: 600px; margin: 0 auto; text-align: left; line-height: 1.6;">
-                        <p>[Details about you, your experience, and your contributions to the project.]</p>
-                    </div>
-                    <div style="margin-top: 2rem;">
-                        <a href="#" class="btn" style="margin: 0 0.5rem;">LinkedIn</a>
-                        <a href="#" class="btn" style="margin: 0 0.5rem;">GitHub</a>
-                    </div>
-                </div>
+            <!-- Team Member 3 -->
             <div class="bg-white rounded-lg shadow-lg p-6 hover-scale">
                 <div class="flex flex-col items-center">
                     <div class="w-32 h-32 rounded-full overflow-hidden mb-4">
-                        <img src="{{ url_for('static', filename='assets/vidit.jpg') }}?v=1" alt="Vidit" class="object-cover w-full h-full">
+                        <img src="{{ url_for('static', filename='assets/anany.jpg') }}?v=1" alt="Vidit" class="object-cover w-full h-full">
                     </div>
                     <h2 class="text-2xl font-semibold text-gray-800 mb-2">Vidit</h2>
                     <p class="text-gray-600 mb-4">Frontend</p>
                     <p class="text-center text-gray-600 mb-4">Python || React || ACM tech team</p>
                     <div class="space-x-4">
-                        <a href="https://www.linkedin.com/in/vidit-k-443634215?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition duration-300">LinkedIn</a>
-                        <a href="https://github.com/MrHANDSOMEkhenwar" class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg transition duration-300">GitHub</a>
+                        <a href="https://www.linkedin.com/in/vidit-k-443634215" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg">LinkedIn</a>
+                        <a href="https://github.com/MrHANDSOMEkhenwar" class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg">GitHub</a>
                     </div>
                 </div>
             </div>
+
+            <!-- Team Member 4 -->
+            <div class="bg-white rounded-lg shadow-lg p-6 hover-scale">
+                <div class="flex flex-col items-center">
+                    <div class="w-32 h-32 rounded-full overflow-hidden mb-4">
+                        <img src="{{ url_for('static', filename='assets/vidit.jpg') }}?v=1" alt="Vidit" class="object-cover w-full h-full">
+                    </div>
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-2">Anany</h2>
+                    <p class="text-gray-600 mb-4">Research Head</p>
+                    <p class="text-center text-gray-600 mb-4">Bennett University | BTech CSE'28 | ACM | DroneSoc | Python</p>
+                    <div class="space-x-4">
+                        <a href="https://www.linkedin.com/in/vidit-k-443634215" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg">LinkedIn</a>
+                        <a href="https://github.com/MrHANDSOMEkhenwar" class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
             <!-- Team Member 5 -->
             <div class="bg-white rounded-lg shadow-lg p-6 hover-scale">
                 <div class="flex flex-col items-center">
@@ -124,32 +141,30 @@
                     </div>
                     <h2 class="text-2xl font-semibold text-gray-800 mb-2">Aditya</h2>
                     <p class="text-gray-600 mb-4">Frontend/UI UX designer</p>
-                    <p class="text-center text-gray-600 mb-4">MERN-Stack || SIH BU-39th rank || Tech @codechef_BU | @ACM | BU'28</p>
+                    <p class="text-center text-gray-600 mb-4">MERN-Stack || SIH BU-39th rank || @ACM | BU'28</p>
                     <div class="space-x-4">
-                        <a href="https://www.linkedin.com/in/aditya-agrawal-527150303/" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition duration-300">LinkedIn</a>
-                        <a href="https://github.com/Aditya30ag" class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg transition duration-300">GitHub</a>
+                        <a href="https://www.linkedin.com/in/aditya-agrawal-527150303/" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg">LinkedIn</a>
+                        <a href="https://github.com/Aditya30ag" class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg">GitHub</a>
                     </div>
                 </div>
             </div>
+
             <!-- Team Member 6 -->
             <div class="bg-white rounded-lg shadow-lg p-6 hover-scale">
                 <div class="flex flex-col items-center">
                     <div class="w-32 h-32 rounded-full overflow-hidden mb-4">
-                        <img src="{{ url_for('static', filename='/assets/WhatsApp Image 2024-10-20 at 22.53.52_288394ee.jpg') }}?v=1" alt="Dhruv" class="object-cover w-full h-full">
+                        <img src="{{ url_for('static', filename='/assets/dhruv.jpg') }}?v=1" alt="Dhruv" class="object-cover w-full h-full">
                     </div>
                     <h2 class="text-2xl font-semibold text-gray-800 mb-2">Dhruv</h2>
                     <p class="text-gray-600 mb-4">AI / backend</p>
                     <p class="text-center text-gray-600 mb-4">Full Stack Java Developer | Rust Enthusiast | DSA</p>
                     <div class="space-x-4">
-                        <a href="https://www.linkedin.com/in/dhruvv-gupta?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition duration-300">LinkedIn</a>
-                        <a href="https://github.com/dhruvv1402" class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg transition duration-300">GitHub</a>
+                        <a href="https://www.linkedin.com/in/dhruvv-gupta" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg">LinkedIn</a>
+                        <a href="https://github.com/dhruvv-gupta" class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg">GitHub</a>
                     </div>
                 </div>
             </div>
-            <!-- Add more team members below -->
-
         </div>
     </div>
-
 </body>
 </html>
