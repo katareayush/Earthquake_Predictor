@@ -4,104 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Project - Health Risk Predictor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-
-        body {
-            background: #f0f2f5;
-        }
-
-        .navbar {
-            background: #2c3e50;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-
-        .nav-links a:hover {
-            background-color: #34495e;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        .card {
-            background: white;
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #2c3e50;
-        }
-
-        h2 {
-            color: #34495e;
-            margin: 2rem 0 1rem;
-        }
-
-        ul {
-            list-style-position: inside;
-            margin-left: 1rem;
+        .fade-in-up {
+            animation: fadeInUp 1s ease-in-out;
         }
     </style>
 </head>
-<body>
-    <nav class="navbar">
-        <div class="nav-links">
-            <a href="/home">Home</a>
-            <a href="/aboutproject">About Project</a>
-            <a href="/review">Review</a>
-            <a href="/sourcecode">Source Code</a>
-            <a href="/creator">Team</a>
+<body class="bg-gradient-to-b from-gray-100 to-gray-300">
+
+    <!-- Navbar -->
+    <nav class="bg-gray-800 shadow-lg sticky top-0 z-50">
+        <div class="flex justify-center gap-8 py-4 transition duration-500 ease-in-out transform hover:scale-105">
+            <a href="/home" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300 ease-in-out hover:text-yellow-400">Home</a>
+            <a href="/aboutproject" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300 ease-in-out hover:text-yellow-400">About Project</a>
+            <a href="/location" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300 ease-in-out hover:text-yellow-400">Get Location</a>
+            <a href="/review" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300 ease-in-out hover:text-yellow-400">Review</a>
+            <a href="/sourcecode" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300 ease-in-out hover:text-yellow-400">Source Code</a>
+            <a href="/creator" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300 ease-in-out hover:text-yellow-400">Team</a>
+            
         </div>
     </nav>
-    
-    <div class="container">
-        <div class="card">
-            <h1>About the Project</h1>
+
+    <!-- Main Content -->
+    <div class="max-w-5xl mx-auto my-8 px-4">
+        <div class="bg-white rounded-lg p-8 shadow-xl transform transition duration-500 hover:shadow-2xl hover:scale-105 fade-in-up">
+            <h1 class="text-center text-3xl font-bold text-gray-800 mb-8 transition duration-300 hover:text-indigo-600">About the Project</h1>
             
-            <div style="line-height: 1.6;">
-                <h2>Project Overview</h2>
-                <p>This health risk assessment tool uses machine learning to predict potential health risks based on various parameters.</p>
-                
-                <h2>How It Works</h2>
-                <p>The system takes three key parameters as input and processes them through a trained machine learning model to assess potential health risks.</p>
-                
-                <h2>Risk Levels</h2>
-                <ul>
-                    <li>No Risk (< 4)</li>
-                    <li>Low Risk (4-6)</li>
-                    <li>Moderate Risk (6-8)</li>
-                    <li>High Risk (8-9)</li>
-                    <li>Very High Risk (> 9)</li>
-                </ul>
+            <div class="space-y-6 text-gray-700 leading-relaxed">
+                <!-- Project Overview -->
+                <div class="transition duration-300 hover:bg-gray-100 p-6 rounded-lg transform hover:scale-105">
+                    <h2 class="text-2xl font-semibold text-gray-700 mb-2 transition hover:text-indigo-500">Project Overview</h2>
+                    <p class="transition hover:text-gray-900">Our project is based on an AI/ML model that uses a dataset of over 3000 past earthquakes to train the ML model and AI to make highly accurate predictions on any future calamities. Based on these predictions, a push button is activated sending a universally accepted Morse code SOS signal to ensure that help arrives in a timely and efficient manner
+                        Our revolutionary project can save millions of lives in the future by aiding rescue operations and providing help as quickly as possible.</p>
+                </div>
+
+                <!-- How It Works -->
+                <div class="transition duration-300 hover:bg-gray-100 p-6 rounded-lg transform hover:scale-105">
+                    <h2 class="text-2xl font-semibold text-gray-700 mb-2 transition hover:text-indigo-500">How It Works</h2>
+                    <p class="transition hover:text-gray-900">Our model uses the very accurate and renowned machine learning model, RandomForest. It creates several data trees and conducts Bootstrap sampling on each one of them to create an aggregate result. This result is as accurate as possible ensuring a trustworthy output. We have then created our UI using Flask and HTML/CSS to ensure that it is concise, thereby displaying all important information in a clear manner, yet attractive. This ensures that our project is as accurate as possible, along with having a user friendly UI.</p>
+                </div>
+
+                <!-- Risk Levels -->
+                <div class="transition duration-300 hover:bg-gray-100 p-6 rounded-lg transform hover:scale-105">
+                    <h2 class="text-2xl font-semibold text-gray-700 mb-2 transition hover:text-indigo-500">Risk Levels</h2>
+                    <ul class="list-disc pl-6 space-y-1">
+                        <li class="transition hover:text-green-500 hover:scale-105">No Risk (&lt; 4)</li>
+                        <li class="transition hover:text-yellow-500 hover:scale-105">Low Risk (4-6)</li>
+                        <li class="transition hover:text-orange-500 hover:scale-105">Moderate Risk (6-8)</li>
+                        <li class="transition hover:text-red-500 hover:scale-105">High Risk (8-9)</li>
+                        <li class="transition hover:text-red-600 hover:scale-105">Very High Risk (&gt; 9)</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
+
+    <script>
+        // Simple scroll animation on load
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('.fade-in-up');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+
 </body>
 </html>

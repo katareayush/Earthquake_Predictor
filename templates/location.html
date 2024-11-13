@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Location</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+    <nav class="bg-gray-800 shadow-lg">
+        <div class="flex justify-center gap-8 py-4">
+            <a href="/home" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300">Home</a>
+            <a href="/aboutproject" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300">About Project</a>
+            <a href="/location" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300 ease-in-out hover:text-yellow-400">Get Location</a>
+            <a href="/review" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300">Review</a>
+            <a href="/sourcecode" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300">Source Code</a>
+            <a href="/creator" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300">Team</a>
+            
+        </div>
+    </nav>
+
+    <div class="max-w-md mx-auto my-8 bg-white rounded-lg shadow-lg p-8">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Get Location</h1>
+
+        <form id="location-form" class="mb-4">
+            <div class="mb-4">
+                <label for="latitude" class="block text-gray-700">Latitude</label>
+                <input type="text" id="latitude" class="w-full px-3 py-2 border border-gray-300 rounded-lg" required>
+            </div>
+            <div class="mb-4">
+                <label for="longitude" class="block text-gray-700">Longitude</label>
+                <input type="text" id="longitude" class="w-full px-3 py-2 border border-gray-300 rounded-lg" required>
+            </div>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300">Get Location</button>
+        </form>
+
+        <div id="result" class="mt-4 text-center"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById('location-form');
+        const resultDiv = document.getElementById('result');
+        
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const lat = document.getElementById('latitude').value;
+            const lng = document.getElementById('longitude').value;
+
+            // OpenCage API call
+            const apiKey = '2118f71523de4c8ead3f4628c76b7c36'; // Replace with your OpenCage API key
+            const url = `https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lng}&key=${apiKey}`;
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+
+                if (data.results.length > 0) {
+                    const location = data.results[0].formatted;
+                    resultDiv.innerHTML = `<p class="text-green-600">Location: ${location}</p>`;
+                } else {
+                    resultDiv.innerHTML = `<p class="text-red-600">Location not found.</p>`;
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                resultDiv.innerHTML = `<p class="text-red-600">An error occurred while fetching location.</p>`;
+            }
+        });
+    </script>
+
+</body>
+</html>

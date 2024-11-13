@@ -33,6 +33,10 @@ def sourcecode():
 def creator():
     return render_template('creator.html')
 
+@app.route('/location')
+def location():
+    return render_template('location.html')
+
 @app.route('/prediction', methods=['POST'])
 def prediction():
     try:

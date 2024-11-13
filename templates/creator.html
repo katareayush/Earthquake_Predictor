@@ -4,170 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About the Creator - Health Risk Predictor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+        /* Smooth fade-in animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-in forwards;
         }
 
-        body {
-            background: #f0f2f5;
-        }
-
-        .navbar {
-            background: #2c3e50;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-
-        .nav-links a:hover {
-            background-color: #34495e;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 cards in a row */
-            gap: 2rem;
-        }
-
-        /* For smaller screens, make the layout responsive */
-        @media (max-width: 768px) {
-            .grid {
-                grid-template-columns: repeat(2, 1fr); /* 2 cards in a row on smaller screens */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        @media (max-width: 480px) {
-            .grid {
-                grid-template-columns: 1fr; /* 1 card in a row on mobile screens */
-            }
+        /* Card hover scaling */
+        .hover-scale:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
         }
 
-        .card {
-            background: white;
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #2c3e50;
-        }
-
-        h2 {
-            color: #34495e;
-            margin-bottom: 1rem;
-            margin-top: 1rem;
-        }
-
-        p {
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        .profile-image {
-            width: 150px;  /* Set the desired width */
-            height: 150px; /* Set the desired height */
-            overflow: hidden; /* Hide overflow */
-            border-radius: 50%; /* Make it round */
-            display: flex;
-            align-items: center; /* Center vertically */
-            justify-content: center; /* Center horizontally */
-            background-color: #ddd; /* Optional: background color */
-            transform: translateX(83px);
-            
-        }
-        
-        .profile-image img {
-            width: 100%; 
-            height: auto; 
-        }
-        
-
-        .btn {
-            background: #3498db;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .btn:hover {
-            background: #2980b9;
+        /* Social link hover */
+        .hover-zoom:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s ease-in-out;
         }
     </style>
 </head>
-<body>
-    <nav class="navbar">
-        <div class="nav-links">
-            <a href="/home">Home</a>
-            <a href="/aboutproject">About Project</a>
-            <a href="/review">Review</a>
-            <a href="/sourcecode">Source Code</a>
-            <a href="/creator">Team</a>
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="bg-gray-800 shadow-lg sticky top-0 z-50">
+        <div class="flex justify-center gap-8 py-4 transition duration-500 ease-in-out transform hover:scale-105">
+            <a href="/home" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300 ease-in-out hover:text-yellow-400">Home</a>
+            <a href="/aboutproject" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300 ease-in-out hover:text-yellow-400">About Project</a>
+            <a href="/location" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300 ease-in-out hover:text-yellow-400">Get Location</a>
+            <a href="/review" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300 ease-in-out hover:text-yellow-400">Review</a>
+            <a href="/sourcecode" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300 ease-in-out hover:text-yellow-400">Source Code</a>
+            <a href="/creator" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300 ease-in-out hover:text-yellow-400">Team</a>
+            
         </div>
     </nav>
-    
-    <div class="container">
-        <h1>Team Section</h1>
-        
-        <div class="grid">
-            <div class="card">
-                <div style="text-align: center;">
-                    <div class="profile-image">
-                        <img src="{{ url_for('static', filename='assets/kushagra.jpg') }}?v=1" alt="Kushagra">
+
+    <!-- Container for the Team Section -->
+    <div class="container mx-auto mt-8 px-4 fade-in">
+        <h1 class="text-center text-4xl font-bold text-gray-800 mb-10">Meet the Team</h1>
+
+        <!-- Grid layout for team members -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Team Member 1 -->
+            <div class="bg-white rounded-lg shadow-lg p-6 hover-scale">
+                <div class="flex flex-col items-center">
+                    <div class="w-32 h-32 rounded-full overflow-hidden mb-4">
+                        <img src="{{ url_for('static', filename='assets/kushagra.jpg') }}?v=1" alt="Kushagra" class="object-cover w-full h-full">
                     </div>
-                    <h2>[Your Name]</h2>
-                    <p>[Your Title/Role]</p>
-                    <div style="max-width: 600px; margin: 0 auto; text-align: left; line-height: 1.6;">
-                        <p>[Details about you, your experience, and your contributions to the project.]</p>
-                    </div>
-                    <div style="margin-top: 2rem;">
-                        <a href="#" class="btn" style="margin: 0 0.5rem;">LinkedIn</a>
-                        <a href="#" class="btn" style="margin: 0 0.5rem;">GitHub</a>
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-2">Kushagra</h2>
+                    <p class="text-gray-600 mb-4">Hardware Lead</p>
+                    <p class="text-center text-gray-600 mb-4">Bennett University B.Tech ECE’27 | ACM | NCC | DroneSoc</p>
+                    <div class="space-x-4">
+                        <a href="https://www.linkedin.com/in/kushagra-dharia-109933216?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition duration-300 hover-zoom">LinkedIn</a>
+                        <a href="#" class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg transition duration-300 hover-zoom">GitHub</a>
                     </div>
                 </div>
             </div>
 
-            <div class="card">
-                <div style="text-align: center;">
-                    <div class="profile-image">
-                        <img src="{{ url_for('static', filename='assets/pranshita.jpg') }}?v=1" alt="">
+            <!-- Team Member 2 -->
+            <div class="bg-white rounded-lg shadow-lg p-6 hover-scale">
+                <div class="flex flex-col items-center">
+                    <div class="w-32 h-32 rounded-full overflow-hidden mb-4">
+                        <img src="{{ url_for('static', filename='assets/pranshita.jpg') }}?v=1" alt="Pranshita" class="object-cover w-full h-full">
                     </div>
-                    <h2>[Your Name]</h2>
-                    <p>[Your Title/Role]</p>
-                    <div style="max-width: 600px; margin: 0 auto; text-align: left; line-height: 1.6;">
-                        <p>[Details about you, your experience, and your contributions to the project.]</p>
-                    </div>
-                    <div style="margin-top: 2rem;">
-                        <a href="#" class="btn" style="margin: 0 0.5rem;">LinkedIn</a>
-                        <a href="#" class="btn" style="margin: 0 0.5rem;">GitHub</a>
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-2">Pranshita</h2>
+                    <p class="text-gray-600 mb-4">Backend/Research</p>
+                    <p class="text-center text-gray-600 mb-4">Java || Python || ACM team</p>
+                    <div class="space-x-4">
+                        <a href="https://www.linkedin.com/in/pranshita?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition duration-300 hover-zoom">LinkedIn</a>
+                        <a href="https://github.com/pranshitaa" class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg transition duration-300 hover-zoom">GitHub</a>
                     </div>
                 </div>
             </div>
@@ -187,61 +102,54 @@
                         <a href="#" class="btn" style="margin: 0 0.5rem;">GitHub</a>
                     </div>
                 </div>
-            </div>
-
-            <div class="card">
-                <div style="text-align: center;">
-                    <div class="profile-image">
-                        <img src="{{ url_for('static', filename='assets/vidit.jpg') }}?v=1" alt="">
+            <div class="bg-white rounded-lg shadow-lg p-6 hover-scale">
+                <div class="flex flex-col items-center">
+                    <div class="w-32 h-32 rounded-full overflow-hidden mb-4">
+                        <img src="{{ url_for('static', filename='assets/vidit.jpg') }}?v=1" alt="Vidit" class="object-cover w-full h-full">
                     </div>
-                    <h2>[Your Name]</h2>
-                    <p>[Your Title/Role]</p>
-                    <div style="max-width: 600px; margin: 0 auto; text-align: left; line-height: 1.6;">
-                        <p>[Details about you, your experience, and your contributions to the project.]</p>
-                    </div>
-                    <div style="margin-top: 2rem;">
-                        <a href="#" class="btn" style="margin: 0 0.5rem;">LinkedIn</a>
-                        <a href="#" class="btn" style="margin: 0 0.5rem;">GitHub</a>
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-2">Vidit</h2>
+                    <p class="text-gray-600 mb-4">Frontend</p>
+                    <p class="text-center text-gray-600 mb-4">Python || React || ACM tech team</p>
+                    <div class="space-x-4">
+                        <a href="https://www.linkedin.com/in/vidit-k-443634215?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition duration-300">LinkedIn</a>
+                        <a href="https://github.com/MrHANDSOMEkhenwar" class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg transition duration-300">GitHub</a>
                     </div>
                 </div>
             </div>
-
-            <div class="card">
-                <div style="text-align: center;">
-                    <div class="profile-image">
-                        <span style="font-size: 4rem; color: #666;">👤</span>
+            <!-- Team Member 5 -->
+            <div class="bg-white rounded-lg shadow-lg p-6 hover-scale">
+                <div class="flex flex-col items-center">
+                    <div class="w-32 h-32 rounded-full overflow-hidden mb-4">
+                        <img src="{{ url_for('static', filename='assets/aditya.jpg') }}?v=1" alt="Aditya" class="object-cover w-full h-full">
                     </div>
-                    <h2>[Your Name]</h2>
-                    <p>[Your Title/Role]</p>
-                    <div style="max-width: 600px; margin: 0 auto; text-align: left; line-height: 1.6;">
-                        <p>[Details about you, your experience, and your contributions to the project.]</p>
-                    </div>
-                    <div style="margin-top: 2rem;">
-                        <a href="#" class="btn" style="margin: 0 0.5rem;">LinkedIn</a>
-                        <a href="#" class="btn" style="margin: 0 0.5rem;">GitHub</a>
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-2">Aditya</h2>
+                    <p class="text-gray-600 mb-4">Frontend/UI UX designer</p>
+                    <p class="text-center text-gray-600 mb-4">MERN-Stack || SIH BU-39th rank || Tech @codechef_BU | @ACM | BU'28</p>
+                    <div class="space-x-4">
+                        <a href="https://www.linkedin.com/in/aditya-agrawal-527150303/" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition duration-300">LinkedIn</a>
+                        <a href="https://github.com/Aditya30ag" class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg transition duration-300">GitHub</a>
                     </div>
                 </div>
             </div>
-
-            <div class="card">
-                <div style="text-align: center;">
-                    <div class="profile-image">
-                        <span style="font-size: 4rem; color: #666;">👤</span>
+            <!-- Team Member 6 -->
+            <div class="bg-white rounded-lg shadow-lg p-6 hover-scale">
+                <div class="flex flex-col items-center">
+                    <div class="w-32 h-32 rounded-full overflow-hidden mb-4">
+                        <img src="{{ url_for('static', filename='/assets/WhatsApp Image 2024-10-20 at 22.53.52_288394ee.jpg') }}?v=1" alt="Dhruv" class="object-cover w-full h-full">
                     </div>
-                    <h2>[Your Name]</h2>
-                    <p>[Your Title/Role]</p>
-                    <div style="max-width: 600px; margin: 0 auto; text-align: left; line-height: 1.6;">
-                        <p>[Details about you, your experience, and your contributions to the project.]</p>
-                    </div>
-                    <div style="margin-top: 2rem;">
-                        <a href="#" class="btn" style="margin: 0 0.5rem;">LinkedIn</a>
-                        <a href="#" class="btn" style="margin: 0 0.5rem;">GitHub</a>
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-2">Dhruv</h2>
+                    <p class="text-gray-600 mb-4">AI / backend</p>
+                    <p class="text-center text-gray-600 mb-4">Full Stack Java Developer | Rust Enthusiast | DSA</p>
+                    <div class="space-x-4">
+                        <a href="https://www.linkedin.com/in/dhruvv-gupta?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition duration-300">LinkedIn</a>
+                        <a href="https://github.com/dhruvv1402" class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg transition duration-300">GitHub</a>
                     </div>
                 </div>
             </div>
-
+            <!-- Add more team members below -->
 
         </div>
     </div>
+
 </body>
 </html>

@@ -4,108 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prediction Results</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
-        body {
-            background: #f0f2f5;
-        }
-
-        .navbar {
-            background: #2c3e50;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-
-        .nav-links a:hover {
-            background-color: #34495e;
-        }
-
-        .card {
-            background: white;
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            max-width: 500px;
-            margin: 2rem auto; /* Center card with margin */
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #2c3e50;
-        }
-
-        .result {
-            text-align: center;
-            margin: 1.5rem 0;
-        }
-
-        h2 {
-            color: #2980b9;
-        }
-
-        h3 {
-            color: #e74c3c;
-        }
-
-        .btn {
-            background-color: #3498db;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            text-align: center;
-        }
-
-        .btn:hover {
-            background-color: #2980b9;
-        }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <nav class="navbar">
-        <div class="nav-links">
-            <a href="/home">Home</a>
-            <a href="/aboutproject">About Project</a>
-            <a href="/review">Review</a>
-            <a href="/sourcecode">Source Code</a>
-            <a href="/creator">Team</a>
+
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="bg-gray-800 shadow-lg sticky top-0 z-50">
+        <div class="flex justify-center gap-8 py-4 transition duration-500 ease-in-out transform hover:scale-105">
+            <a href="/home" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300 ease-in-out hover:text-yellow-400">Home</a>
+            <a href="/aboutproject" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300 ease-in-out hover:text-yellow-400">About Project</a>
+            <a href="/location" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300 ease-in-out hover:text-yellow-400">Get Location</a>
+            <a href="/review" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300 ease-in-out hover:text-yellow-400">Review</a>
+            <a href="/sourcecode" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300 ease-in-out hover:text-yellow-400">Source Code</a>
+            <a href="/creator" class="text-white hover:bg-gray-700 px-4 py-2 rounded transition duration-300 ease-in-out hover:text-yellow-400">Team</a>
+            
         </div>
     </nav>
 
-    <div class="card">
-        <h1>Prediction Results</h1>
-        
-        <div class="result">
-            <h2>Predicted Magnitude: {{ magnitude }}</h2>  <!-- Displaying predicted magnitude -->
-            <h3>Risk Level: {{ risk_score }}</h3>          <!-- Displaying risk level -->
+    <div class="max-w-md mx-auto my-8 bg-white rounded-lg shadow-lg p-8">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Prediction Results</h1>
+
+        <div class="text-center mb-6">
+            <h2 class="text-xl text-blue-600">Predicted Magnitude: {{ magnitude }}</h2>
+            <h3 class="text-lg text-red-600">Risk Level: {{ risk_score }}</h3>
         </div>
-        
-        <div style="text-align: center;">
-            <a href="{{ url_for('home') }}" class="btn">Make Another Prediction</a>
+
+        <div class="text-center">
+            <a href="{{ url_for('home') }}" class="bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600 transition duration-300">Make Another Prediction</a>
         </div>
     </div>
+
 </body>
 </html>
